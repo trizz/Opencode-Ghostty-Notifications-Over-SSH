@@ -32,7 +32,7 @@ Add to your `opencode.json`:
 
 ```json
 {
-  "plugins": ["opencode-terminal-notify"]
+  "plugin": ["opencode-terminal-notify"]
 }
 ```
 
@@ -51,7 +51,7 @@ npm run build
 
 ```json
 {
-  "plugins": ["file:///absolute/path/to/opencode-terminal-notify/dist/index.js"]
+  "plugin": ["file:///absolute/path/to/opencode-terminal-notify/dist/index.js"]
 }
 ```
 
