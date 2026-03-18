@@ -2,7 +2,7 @@
 
 An [OpenCode](https://opencode.ai) plugin that sends **OSC 9 terminal escape sequence notifications** — designed for SSH/remote workflows where native desktop notifications don't reach your local machine.
 
-## Why This Exists
+## Why this exists
 
 OpenCode's built-in desktop notifications use native OS APIs (e.g. Electron `Notification`), which don't work when OpenCode is running on a remote server over SSH. This plugin solves that by emitting OSC 9 escape sequences instead — these travel through the SSH pipe and are interpreted by your **local terminal** (Ghostty, iTerm2, Windows Terminal, etc.) as native macOS/OS notifications.
 
@@ -26,18 +26,6 @@ Sub-agent completions (e.g. `@general`, `@explore`) are intentionally **suppress
 
 ## Installation
 
-### Option A: From npm (once published)
-
-Add to your `opencode.json`:
-
-```json
-{
-  "plugin": ["opencode-terminal-notify"]
-}
-```
-
-### Option B: Local file (development / before publishing)
-
 1. Clone this repo and build it:
 
 ```bash
@@ -47,23 +35,18 @@ npm install
 npm run build
 ```
 
-2. Add the absolute path to your `opencode.json`:
+2. Add the plugin to `~/.config/opencode/opencode.json` (create it if it doesn't exist):
 
 ```json
 {
-  "plugin": ["file:///absolute/path/to/opencode-terminal-notify/dist/index.js"]
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "file:///home/dev/repositories/opencode-terminal-notify/dist/index.js"
+  ]
 }
 ```
 
-### Option C: Global plugin (applies to all projects)
-
-Place the built file at:
-
-```
-~/.config/opencode/plugins/terminal-notify.js
-```
-
-OpenCode auto-loads all `.js` and `.ts` files in that directory.
+> Update the path to match wherever you cloned the repo.
 
 ## Ghostty Setup
 
